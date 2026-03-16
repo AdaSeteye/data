@@ -40,4 +40,10 @@ git branch -M main
 git push -u origin main
 ```
 
-Then connect the repo to Vercel (or another host) for deployment.
+### Deploy to Vercel
+
+1. Go to [vercel.com](https://vercel.com) and sign in (GitHub).
+2. Click **Add New** → **Project**.
+3. Import the **AdaSeteye/data** repo (or paste `https://github.com/AdaSeteye/data`).
+4. Leave defaults (Framework: Next.js, Build Command: `npm run build`, Output: Next.js).
+5. Click **Deploy**. Vercel will build and give you a live URL (e.g. `data-xxx.vercel.app`).
