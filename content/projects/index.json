@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "churn-prediction",
+    "title": "Churn Prediction",
+    "tagline": "Predict customer churn from usage and profile data",
+    "tags": ["Classification", "Imbalanced data", "Feature engineering"],
+    "metric": "F1 +0.18 vs baseline",
+    "featured": true
+  },
+  {
+    "slug": "demand-forecasting",
+    "title": "Demand Forecasting",
+    "tagline": "Time-series forecasting to reduce stockouts",
+    "tags": ["Time series", "Forecasting", "ARIMA"],
+    "metric": "RMSE ↓ 12%",
+    "featured": true
+  },
+  {
+    "slug": "topic-modeling",
+    "title": "Document Topic Modeling",
+    "tagline": "Discover themes in support ticket corpora",
+    "tags": ["NLP", "LDA", "Unsupervised"],
+    "metric": "Coherence +0.04",
+    "featured": true
+  },
+  {
+    "slug": "recommendation-engine",
+    "title": "Recommendation Engine",
+    "tagline": "Item recommendations from implicit feedback",
+    "tags": ["Recommender", "Matrix factorization", "Ranking"],
+    "metric": "HR@10 0.42",
+    "featured": true
+  },
+  {
+    "slug": "ab-test-analysis",
+    "title": "A/B Test Analysis",
+    "tagline": "Lift, confidence intervals, and power",
+    "tags": ["Experimentation", "Statistics", "Causal inference"],
+    "metric": "Lift +8.2% (95% CI)",
+    "featured": false
+  },
+  {
+    "slug": "anomaly-detection",
+    "title": "Anomaly Detection",
+    "tagline": "Detect anomalies in sensor and transaction data",
+    "tags": ["Unsupervised", "Isolation Forest", "Time series"],
+    "metric": "Precision 0.89",
+    "featured": false
+  }
+]

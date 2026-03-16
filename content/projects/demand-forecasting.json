@@ -1,0 +1,31 @@
+{
+  "slug": "demand-forecasting",
+  "title": "Demand Forecasting",
+  "tagline": "Time-series forecasting to reduce stockouts",
+  "tags": ["Time series", "Forecasting", "ARIMA"],
+  "metric": "RMSE ↓ 12%",
+  "sections": {
+    "problem": "A retailer needed daily demand forecasts for key SKUs to align inventory and staffing. Naive methods (e.g. last week same day) led to stockouts and excess stock.",
+    "data": "Historical daily demand for 24 months, with clear seasonality (weekly and monthly) and a slight trend. Missing values were filled with forward fill and short gaps interpolated.",
+    "approach": "I compared a seasonal naive baseline, ARIMA with seasonal differencing, and a simple tree model on lag and calendar features. Validation was time-based: train on first 18 months, test on last 6. Metric: RMSE and MAPE.",
+    "results": "ARIMA(2,1,1)(1,1,1)[7] beat the naive baseline by 12% RMSE. The tree model was close but slightly worse on the tail of the horizon. The plot shows actual vs forecast for the test period.",
+    "next": ["Extend to multi-SKU with hierarchical reconciliation.", "Add exogenous variables (promos, holidays).", "Pipe forecasts into an inventory optimization layer."]
+  },
+  "charts": {
+    "forecast": {
+      "title": "Actual vs forecast (test period, last 60 days)",
+      "data": [
+        { "day": 1, "actual": 142, "forecast": 138 },
+        { "day": 7, "actual": 168, "forecast": 165 },
+        { "day": 14, "actual": 155, "forecast": 158 },
+        { "day": 21, "actual": 172, "forecast": 170 },
+        { "day": 28, "actual": 161, "forecast": 164 },
+        { "day": 35, "actual": 178, "forecast": 175 },
+        { "day": 42, "actual": 165, "forecast": 168 },
+        { "day": 49, "actual": 182, "forecast": 180 },
+        { "day": 56, "actual": 158, "forecast": 162 },
+        { "day": 60, "actual": 170, "forecast": 172 }
+      ]
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "ab-test-analysis",
+  "title": "A/B Test Analysis",
+  "tagline": "Lift, confidence intervals, and power",
+  "tags": ["Experimentation", "Statistics", "Causal inference"],
+  "metric": "Lift +8.2% (95% CI)",
+  "sections": {
+    "problem": "A product change (new checkout flow) was run as an A/B test. The team needed a clear answer: did the treatment improve conversion, and by how much?",
+    "data": "Simulated experiment: 50k users per arm, binary outcome (converted or not). Control conversion ~4.2%, treatment ~4.55%. I checked balance on covariates and looked for early stopping or novelty effects.",
+    "approach": "I computed the difference in conversion rates, a two-proportion z-test, and a 95% CI for the lift. I also estimated required sample size (power analysis) for a minimum detectable effect. No multiple-comparison correction was needed for this single primary metric.",
+    "results": "Observed lift +8.2% relative (4.2% → 4.55%), 95% CI [2.1%, 14.5%], p &lt; 0.01. The chart shows conversion by arm with error bars.",
+    "next": ["Segment analysis (e.g. by device or cohort).", "Long-term metrics (retention, revenue) once data is available.", "Document runbook for future tests."]
+  },
+  "charts": {
+    "conversion": {
+      "title": "Conversion rate by arm (95% CI)",
+      "data": [
+        { "arm": "Control", "rate": 4.2, "lo": 3.9, "hi": 4.5 },
+        { "arm": "Treatment", "rate": 4.55, "lo": 4.25, "hi": 4.85 }
+      ]
+    }
+  }
+}

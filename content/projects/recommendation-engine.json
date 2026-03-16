@@ -1,0 +1,24 @@
+{
+  "slug": "recommendation-engine",
+  "title": "Recommendation Engine",
+  "tagline": "Item recommendations from implicit feedback",
+  "tags": ["Recommender", "Matrix factorization", "Ranking"],
+  "metric": "HR@10 0.42",
+  "sections": {
+    "problem": "An e-commerce-style product needed 'customers who viewed X also viewed' and a personalized homepage. We had only implicit feedback (views, clicks), no ratings.",
+    "data": "Synthetic user–item interaction matrix: 2k users, 500 items, ~80k events. I treated events as positive signals and used a weighted matrix (e.g. clicks weighted higher than views). No explicit negatives; I sampled negatives for training.",
+    "approach": "I implemented matrix factorization (ALS) and evaluated with hit rate at K and NDCG. I compared with a simple item-based collaborative filter (cosine on item vectors). Cold start was handled with a popularity fallback.",
+    "results": "ALS with 64 factors gave HR@10 0.42 and NDCG@10 0.28. Item-based CF was slightly worse. The chart shows HR@K for K=5,10,20.",
+    "next": ["Add content features (item embeddings) for cold start.", "Online learning or periodic retraining pipeline.", "A/B test recommendations vs no recommendations."]
+  },
+  "charts": {
+    "hr_at_k": {
+      "title": "Hit rate at K (ALS model)",
+      "data": [
+        { "K": 5, "HR": 0.31 },
+        { "K": 10, "HR": 0.42 },
+        { "K": 20, "HR": 0.55 }
+      ]
+    }
+  }
+}

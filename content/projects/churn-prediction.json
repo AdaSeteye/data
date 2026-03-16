@@ -1,0 +1,42 @@
+{
+  "slug": "churn-prediction",
+  "title": "Churn Prediction",
+  "tagline": "Predict which customers churn in 90 days from usage and profile data",
+  "tags": ["Classification", "Imbalanced data", "Feature engineering"],
+  "metric": "F1 +0.18 vs baseline",
+  "sections": {
+    "problem": "The business needed to identify customers at risk of churning in the next 90 days so retention campaigns could be targeted. A generic rule (e.g. \"no login in 30 days\") had high false positives and wasted effort.",
+    "data": "I used a synthetic dataset of 10k customers with profile (tenure, plan, region) and behavior (logins, support tickets, usage). Churn rate was ~15%, so the dataset was imbalanced. I split 80/20 with stratification and held out a temporal slice for validation.",
+    "approach": "Baseline: logistic regression on a few raw features (F1 ≈ 0.32). I added engineered features (sessions per week, ticket trend, tenure bucket), tried class weighting and SMOTE, and moved to XGBoost with tuned hyperparameters. Evaluation was F1 and PR-AUC to account for imbalance.",
+    "results": "XGBoost with engineered features and class weighting reached F1 0.50 and PR-AUC 0.58. Feature importance pointed to recent activity and support volume as the strongest signals. The ROC and PR curves below compare baseline vs final model.",
+    "next": ["Deploy as a batch job and feed scores into the CRM.", "Run a retention A/B test to measure impact on actual churn.", "Add SHAP explanations for top-risk users."]
+  },
+  "charts": {
+    "roc": {
+      "title": "ROC curve: baseline vs XGBoost",
+      "data": [
+        { "fpr": 0, "tpr_baseline": 0, "tpr_model": 0 },
+        { "fpr": 0.1, "tpr_baseline": 0.35, "tpr_model": 0.52 },
+        { "fpr": 0.2, "tpr_baseline": 0.55, "tpr_model": 0.72 },
+        { "fpr": 0.3, "tpr_baseline": 0.68, "tpr_model": 0.82 },
+        { "fpr": 0.4, "tpr_baseline": 0.78, "tpr_model": 0.88 },
+        { "fpr": 0.5, "tpr_baseline": 0.85, "tpr_model": 0.92 },
+        { "fpr": 0.6, "tpr_baseline": 0.90, "tpr_model": 0.95 },
+        { "fpr": 0.7, "tpr_baseline": 0.94, "tpr_model": 0.97 },
+        { "fpr": 0.8, "tpr_baseline": 0.97, "tpr_model": 0.99 },
+        { "fpr": 0.9, "tpr_baseline": 0.99, "tpr_model": 1 },
+        { "fpr": 1, "tpr_baseline": 1, "tpr_model": 1 }
+      ]
+    },
+    "feature_importance": {
+      "title": "Top feature importance (XGBoost)",
+      "data": [
+        { "name": "logins_last_30d", "value": 0.28 },
+        { "name": "support_tickets_90d", "value": 0.22 },
+        { "name": "tenure_months", "value": 0.18 },
+        { "name": "sessions_per_week", "value": 0.14 },
+        { "name": "plan_tier", "value": 0.10 }
+      ]
+    }
+  }
+}

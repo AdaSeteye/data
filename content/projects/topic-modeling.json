@@ -1,0 +1,31 @@
+{
+  "slug": "topic-modeling",
+  "title": "Document Topic Modeling",
+  "tagline": "Discover themes in support ticket corpora",
+  "tags": ["NLP", "LDA", "Unsupervised"],
+  "metric": "Coherence +0.04",
+  "sections": {
+    "problem": "Support wanted a high-level view of what customers were asking about without reading thousands of tickets. Manual tagging was inconsistent and didn't scale.",
+    "data": "A synthetic corpus of 5k support tickets (short paragraphs). I preprocessed: lowercasing, stopwords, lemmatization, and built a dictionary and bag-of-words corpus. Vocabulary was trimmed to terms that appeared in at least 5 documents and in at most 50% of documents.",
+    "approach": "I ran LDA with 6 topics and tuned the number of topics using coherence (C_v). I compared with NMF on TF-IDF. Best coherence was at k=6; I labeled topics by top terms and sampled documents per topic for sanity checks.",
+    "results": "LDA with 6 topics gave coherence 0.42. Top topics aligned with billing, login issues, feature requests, and API errors. The chart shows the top terms per topic for two example topics.",
+    "next": ["Add a temporal dimension to track topic drift.", "Use topic mixtures to route tickets automatically.", "Experiment with BERT-based embeddings for short texts."]
+  },
+  "charts": {
+    "topic_terms": {
+      "title": "Top terms for two example topics",
+      "topics": [
+        { "name": "Topic: Billing", "terms": ["billing", "invoice", "payment", "subscription", "charge", "refund"] },
+        { "name": "Topic: Technical", "terms": ["error", "api", "connection", "timeout", "login", "failed"] }
+      ],
+      "barData": [
+        { "name": "billing", "value": 0.32 },
+        { "name": "invoice", "value": 0.28 },
+        { "name": "payment", "value": 0.24 },
+        { "name": "error", "value": 0.30 },
+        { "name": "api", "value": 0.26 },
+        { "name": "login", "value": 0.22 }
+      ]
+    }
+  }
+}

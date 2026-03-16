@@ -1,0 +1,26 @@
+{
+  "slug": "anomaly-detection",
+  "title": "Anomaly Detection",
+  "tagline": "Detect anomalies in sensor and transaction data",
+  "tags": ["Unsupervised", "Isolation Forest", "Time series"],
+  "metric": "Precision 0.89",
+  "sections": {
+    "problem": "Operations needed alerts when sensor or transaction metrics deviated from normal. Labels were scarce, so a supervised approach wasn't feasible for all anomaly types.",
+    "data": "Synthetic multivariate time series (e.g. 5 sensors) with injected anomalies: spikes, level shifts, and rare combinations. I used a rolling window to build feature vectors (mean, std, min, max over 1h windows).",
+    "approach": "I tried Isolation Forest and a simple autoencoder on standardized features. Threshold for 'anomaly' was set by the 99th percentile of anomaly scores on a clean holdout. Evaluation: precision and recall on an annotated test set (synthetic labels).",
+    "results": "Isolation Forest reached precision 0.89 and recall 0.76 at the chosen threshold. The score distribution below shows separation between normal and anomalous points.",
+    "next": ["Add simple rules for known failure modes.", "Retrain or adapt threshold as distribution shifts.", "Integrate with alerting and dashboards."]
+  },
+  "charts": {
+    "scores": {
+      "title": "Anomaly score distribution (normal vs anomaly)",
+      "data": [
+        { "bucket": "0-0.2", "normal": 420, "anomaly": 2 },
+        { "bucket": "0.2-0.4", "normal": 380, "anomaly": 5 },
+        { "bucket": "0.4-0.6", "normal": 180, "anomaly": 18 },
+        { "bucket": "0.6-0.8", "normal": 15, "anomaly": 42 },
+        { "bucket": "0.8-1", "normal": 5, "anomaly": 33 }
+      ]
+    }
+  }
+}
