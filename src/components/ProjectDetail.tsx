@@ -60,10 +60,10 @@ export default function ProjectDetail({ project }: { project: ProjectData }) {
         <span className="text-xs text-accent font-medium">{project.metric}</span>
       </div>
 
-      {["problem", "data", "approach", "results"].map((key) => (
+      {(["problem", "data", "approach", "results"] as const).map((key) => (
         <section key={key} className="mb-8">
           <h2 className="text-lg font-semibold text-primary mb-2">{SECTION_LABELS[key]}</h2>
-          <p className="text-slate-600 leading-relaxed">{(sections as Record<string, string>)[key]}</p>
+          <p className="text-slate-600 leading-relaxed">{sections[key]}</p>
           {key === "results" && charts && (
             <div className="mt-4">
               {Object.entries(charts).map(([chartKey, chart]) => {
