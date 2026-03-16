@@ -8,7 +8,7 @@ export default function ProjectsPage() {
       <Header />
       <main className="max-w-4xl mx-auto px-4 py-16">
         <h1 className="text-3xl font-bold text-primary mb-2">Projects</h1>
-        <p className="text-slate-600 mb-10">Data science and ML work — classification, forecasting, NLP, experimentation, and more.</p>
+        <p className="text-slate-600 mb-10">Data science and ML work: classification, forecasting, NLP, experimentation, and more.</p>
         <div className="grid gap-6 sm:grid-cols-2">
           {projectsIndex.map((p: { slug: string; title: string; tagline: string; tags: string[]; metric: string }) => (
             <Link

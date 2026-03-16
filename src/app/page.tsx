@@ -14,7 +14,7 @@ export default function Home() {
             Hi, I&apos;m Ada Seteye
           </h1>
           <p className="text-xl text-slate-600 leading-relaxed max-w-2xl">
-            I build models and pipelines that turn data into decisions — from churn prediction and demand forecasting to NLP and experimentation. Here&apos;s a selection of projects that show how I work.
+            I build models and pipelines that turn data into decisions, from churn prediction and demand forecasting to NLP and experimentation. Here&apos;s a selection of projects that show how I work.
           </p>
         </section>
 

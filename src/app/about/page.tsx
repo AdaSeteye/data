@@ -8,7 +8,7 @@ export default function AboutPage() {
         <h1 className="text-3xl font-bold text-primary mb-6">About</h1>
         <div className="prose prose-slate max-w-none">
           <p className="text-slate-600 leading-relaxed mb-4">
-            I&apos;m a data scientist and ML engineer focused on building models that work in production — from designing experiments and building pipelines to deploying and monitoring them.
+            I&apos;m a data scientist and ML engineer focused on building models that work in production, from designing experiments and building pipelines to deploying and monitoring them.
           </p>
           <p className="text-slate-600 leading-relaxed mb-4">
             I work across the stack: data cleaning and feature engineering, classical ML and deep learning, A/B testing and causal inference, and putting models behind APIs and dashboards. I care about clarity in communication and rigor in evaluation.

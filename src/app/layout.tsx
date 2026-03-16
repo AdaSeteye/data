@@ -9,7 +9,7 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: "Ada Seteye | Data Science Portfolio",
-  description: "Data science and ML portfolio — Ada Seteye",
+  description: "Data science and ML portfolio, Ada Seteye",
 };
 
 export default function RootLayout({

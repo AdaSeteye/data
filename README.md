@@ -20,10 +20,10 @@ npm start
 
 ## Structure
 
-- `src/app/` — Pages (landing, projects, about, contact, project detail).
-- `src/components/` — Header, project cards, project detail layout, Recharts visualizations.
-- `src/lib/projects.ts` — Loads project content from `content/projects/`.
-- `content/projects/` — One JSON per project (sections + chart data).
+- `src/app/` - Pages (landing, projects, about, contact, project detail).
+- `src/components/` - Header, project cards, project detail layout, Recharts visualizations.
+- `src/lib/projects.ts` - Loads project content from `content/projects/`.
+- `content/projects/` - One JSON per project (sections + chart data).
 
 Edit `content/projects/*.json` to change copy; add or adjust chart data in each file. Add a new project by creating a new JSON and registering it in `src/lib/projects.ts` and `content/projects/index.json`.
 

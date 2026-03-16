@@ -11,19 +11,18 @@ export default function ContactPage() {
         </p>
         <ul className="space-y-2 text-slate-600">
           <li>
-            <a href="https://github.com/AdaSeteye" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">
-              GitHub — AdaSeteye
+            <a href="#" className="text-accent hover:underline">
+              GitHub
             </a>
           </li>
           <li>
-            <a href="https://linkedin.com/in/adaseteye" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">
+            <a href="#" className="text-accent hover:underline">
               LinkedIn
             </a>
           </li>
           <li>
             <span className="text-slate-500">Email: </span>
-            <a href="mailto:ada@example.com" className="text-accent hover:underline">ada@example.com</a>
-            <span className="text-slate-400 text-sm ml-2">(replace with your email)</span>
+            <a href="mailto:edaye@gmail.com" className="text-accent hover:underline">edaye@gmail.com</a>
           </li>
         </ul>
       </main>
